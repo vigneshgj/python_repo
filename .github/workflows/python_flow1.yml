@@ -38,6 +38,9 @@ jobs:
     steps:
       - name: check hostname 
         run: hostname      
+
+      - name: checkout repository
+        uses: actions/checkout@v4    
         
       - name: setup docker 
         uses: docker-practice/actions-setup-docker@master
