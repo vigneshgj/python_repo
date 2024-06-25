@@ -38,8 +38,11 @@ jobs:
     steps:
       - name: check hostname 
         run: hostname      
+
+      - name: checkout repository     # Checkout into github repository
+        uses: actions/checkout@v4        
         
-      - name: setup docker 
+      - name: setup docker      # setup docker environment
         uses: docker-practice/actions-setup-docker@master
 
       - name: run docker
