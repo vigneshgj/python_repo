@@ -51,4 +51,3 @@ jobs:
           docker version
           docker build -t pydockerimage .   
 
-
