@@ -48,11 +48,3 @@ jobs:
           docker version
           docker build -t pydockerimage .   
 
-      - name: setup docker 
-        uses: docker-practice/actions-setup-docker@master
-
-      - name: run docker
-        run: |
-          set -x
-          docker version
-          docker build -t pydockerimage .
