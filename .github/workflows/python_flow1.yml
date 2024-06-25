@@ -7,7 +7,7 @@ on:
   workflow_dispatch:    # run enable run workflow button on github repository to trigger manually
 
 jobs:
-  python_job:
+  pytest_job:
     runs-on: ubuntu-latest
     # Whatever mentioned under steps will be performed sequentially
     steps:
@@ -33,13 +33,19 @@ jobs:
       - name: check hostname 
         run: hostname
 
-  pytest_job:
+  docker_build_job:
     runs-on: ubuntu-latest
     steps:
-      - name: test 
-        run: python --version
-
       - name: check hostname 
-        run: hostname        
+        run: hostname      
+        
+      - name: setup docker 
+        uses: docker-practice/actions-setup-docker@master
+
+      - name: run docker
+        run: |
+          set -x
+          docker version
+          docker build -t pydockerimage .   
 
 
