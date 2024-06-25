@@ -7,7 +7,7 @@ on:
   workflow_dispatch:    # run enable run workflow button on github repository to trigger manually
 
 jobs:
-  python_job1:
+  python_job:
     runs-on: ubuntu-latest
     # Whatever mentioned under steps will be performed sequentially
     steps:
@@ -25,5 +25,11 @@ jobs:
 
       - name: install python required packages
         run: pip install -r requirements.txt
+
+  pytest_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test 
+        run: python --version
 
 
