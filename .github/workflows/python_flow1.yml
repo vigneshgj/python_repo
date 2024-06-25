@@ -27,7 +27,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: test python file 
-        run: pytest
+        run: pytest -v
 
       - name: check hostname 
         run: hostname
