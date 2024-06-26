@@ -76,7 +76,7 @@ jobs:
         run: ansible --version   
         
       - name: invoke ansible playbook
-        run: ansible all -i ${{ matrix.os }}, -m ping
+        run: ansible all -i $GITHUB_RUNNER_NAME, -m ping
 
   matrix_usage_job:
     strategy:
