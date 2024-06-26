@@ -61,6 +61,9 @@ jobs:
         run: docker push gjvignesh/pydockerimage
 
   ansible_install:
+    strategy:
+      matrix:
+        os: [self-hosted]
     runs-on: ubuntu-latest
     steps:
       - name: checkout repository     # Checkout into github repository
@@ -70,7 +73,10 @@ jobs:
         uses: ./action_ansible_setup
 
       - name: "Print Ansible version"
-        run: ansible --version      
+        run: ansible --version   
+        
+      - name: invoke ansible playbook
+        run: ansible all -i ${{ matrix.os }}, -m ping
 
   matrix_usage_job:
     strategy:

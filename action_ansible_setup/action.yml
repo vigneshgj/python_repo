@@ -1,3 +1,4 @@
+# This is a custom github action and accessing this from main workflow that is under .github/workflows
 name: 'Setup Ansible'
 description: 'Sets up Ansible for use in workflows'
 runs:
