@@ -61,11 +61,8 @@ jobs:
         run: docker push gjvignesh/pydockerimage
 
   ansible_install:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v2
-
       - name: Perform ansible playbook to deploy
         uses: actions-ansible@v2
 
