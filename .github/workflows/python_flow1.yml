@@ -64,7 +64,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Perform ansible playbook to deploy
-        uses: actions-ansible@v2
+        uses: actions/setup-ansible@v1
 
       - name: "Print Ansible version"
         run: ansible --version      
