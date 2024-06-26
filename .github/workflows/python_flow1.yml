@@ -59,3 +59,14 @@ jobs:
 
       - name: push docker image into docker hub
         run: docker push gjvignesh/pydockerimage
+
+  ansible_install:
+    runs-on: self-hosted
+    steps:
+      - name: "Install Ansible"
+        uses: alex-oleshkevich/setup-ansible@VERSION 
+        with:
+          version: "9.3.0"
+
+      - name: "Print Ansible version"
+        run: ansible --version      
