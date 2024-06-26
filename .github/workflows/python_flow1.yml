@@ -63,10 +63,11 @@ jobs:
   ansible_install:
     runs-on: self-hosted
     steps:
-      - name: "Install Ansible"
-        uses: alex-oleshkevich/setup-ansible@VERSION 
-        with:
-          version: "9.3.0"
+      - name: Check out repository code
+        uses: actions/checkout@v2
+
+      - name: Perform ansible playbook to deploy
+        uses: actions-ansible@v2
 
       - name: "Print Ansible version"
         run: ansible --version      
