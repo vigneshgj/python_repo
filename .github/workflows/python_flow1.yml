@@ -63,8 +63,11 @@ jobs:
   ansible_install:
     runs-on: ubuntu-latest
     steps:
-      - name: Perform ansible playbook to deploy
-        uses: actions/setup-ansible@v1
+      - name: checkout repository     # Checkout into github repository
+        uses: actions/checkout@v4   
+
+      - name: setup ansible
+        uses: ./action_ansible_setup
 
       - name: "Print Ansible version"
         run: ansible --version      
@@ -76,8 +79,8 @@ jobs:
         python-version: ['3.8', '3.9', '3.10']
     runs-on: ${{ matrix.os }}    
     steps:
-      - name: setup python environment
-        uses: actions/setup-python@v5
+      - name: checkout repository     # Checkout into github repository
+        uses: actions/checkout@v4   
 
       - name: setup python environment
         uses: actions/setup-python@v5
